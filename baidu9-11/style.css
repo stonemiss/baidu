@@ -1,0 +1,258 @@
+*{margin: 0;padding: 0;box-sizing: border-box;}
+body{
+    min-width: 1200px;
+}
+header{
+    width: 100%;
+    background: url(image/background_1.jpg)  no-repeat;
+    background-size: 100%;
+    min-width: 970px;
+    /* height: 860px; */
+    text-align: center;
+    color: #fff;
+}
+.inner{
+    width: 970px;
+    position: relative;
+    margin: 0 auto;
+}
+.header-inner{
+    height: 800px;;
+}
+.header-text{
+    position: relative;
+    margin: 0 auto;
+    width: 800px;
+    top: 120px;
+}
+.header-inner p{
+    margin-top: 80px;
+    font-size: 20px;
+}
+.login{
+    position: absolute;
+    padding: 40px 0;
+    width: 970px;
+    height: 250px;
+    border: 1px solid rgba(255, 255, 255,0.2);
+    bottom: 200px;
+}
+.login h5{
+    line-height: 40px;
+}
+.login form{
+    position: absolute;
+    bottom: 40px;
+    width: 970px;
+}
+.login form input{
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255,0.2);
+    border-radius: 4px;
+    color: #fff;
+    padding: 0 10px;
+    margin: 0 15px;
+}
+.login form .sign-up{
+    height: 50px;
+    width: 124px;;
+    margin: 0 15px;
+    background: #fff;
+    border: 1px solid #fff;
+}
+/* 第二部分 */
+.cont-inner2{
+    text-align: center;
+    padding: 40px 0;
+}
+.cont-inner2 h5{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.cont-inner2 .list{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    justify-content: space-between;
+}
+.cont-inner2 .list-inner{
+    flex: 1 360px;
+    max-width: 450px;
+    text-align: left;
+    margin-bottom: 40px;
+    display: inline-block;
+}
+.list-image{
+    width: 50px;
+    height: 50px;
+    float: left
+}
+.list-text{
+    float: left;
+    width: 300px;
+    margin-left: 20px;
+}
+.list-text p{
+    margin-top: 10px;
+}
+.list-inner:nth-of-type(1) .list-image{
+    background: url(image/IphoneIcon.png);
+}
+.list-inner:nth-of-type(2) .list-image{
+    background: url(image/CheckIcon.png);
+}
+.list-inner:nth-of-type(3) .list-image{
+    background: url(image/PencilIcon.png);
+}
+.list-inner:nth-of-type(4) .list-image{
+    background: url(image/SettingsIcon.png);
+}
+
+/* 第三分区 */
+.container3{
+    position: relative;
+    width: 100%;
+    height: 800px;
+    background: url(image/background_2.jpg) no-repeat;
+    background-size: 100%;
+}
+.cont-inner3{
+    position: relative;
+}
+.inner3-text{
+    position: absolute;
+    width: 400px;
+    color: #fff;
+    margin-top: 120px;
+}
+.inner3-text p{
+    margin-top: 40px;
+}
+.cont-inner3 form{
+    position: absolute;
+    margin-top: 500px;
+}
+.cont-inner3 form button{
+    height: 60px;
+    width: 240px;
+    margin-right: 20px;
+    border-radius: 4px;
+    border: 1px solid #fff;
+    background: #fff;
+}
+.cont-inner3 form button:nth-of-type(2){
+    background-color: transparent;
+    color: #fff; 
+}
+.inner3-right{
+    height: 600px;
+    float: right;
+    margin-top: 100px;
+}
+
+/* 第四部分 */
+.container4{
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+.cont4-inner{
+    padding: 100px 0;
+    text-align: center;
+}
+.cont4-inner h1{
+    margin-bottom: 80px; 
+}
+.cont4-row{
+    display: flex;
+}
+.row-li{
+    flex: 1;
+    justify-content: space-between;
+}
+.row-li:nth-of-type(2){
+    margin-left: 60px;
+    margin-right: 60px;
+}
+.row-li p{
+    text-align: left;
+    margin-top: 20px;
+}
+/* 第五部分 */
+.container5{
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+.cont5-inner{
+    padding: 100px 0px 20px;
+}
+.cont5-row{
+    display: flex;
+    margin-bottom: 80px;
+    justify-content: space-between;
+    align-items: center;
+}
+.cont5-row:nth-of-type(1) img{
+    margin-right: 80px; 
+}
+.cont5-row:nth-of-type(2) img{
+    margin-left: 80px; 
+}
+.row-text p{
+    margin-top: 40px;
+}
+/* 第六 */
+.container6{
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+.cont6-inner{
+    padding: 100px 0px 70px;
+}
+.cont6-text{
+    text-align: center;
+    width: 800px;
+    margin: 0 auto 60px;
+}
+.cont6-text h1{
+    margin-bottom: 20px;
+}
+.cont6-row{
+    display: flex;
+    justify-content: space-between;
+}
+.row6-li{
+    margin-bottom: 30px;
+    position: relative;
+}
+.li-hover{
+    display: none;
+    position: absolute;
+    background: rgba(0, 0, 0,0.5);
+    text-align: center;
+    width: 470px;
+    height: 340px;;
+    top: 0;
+    left: 0;
+}
+.row6-li:hover .li-hover {
+    display: block;
+    position: absolute;
+    background: rgba(0, 0, 0,0.5);
+    text-align: center;
+    width: 470px;
+    height: 340px;;
+    top: 0;
+    left: 0;
+}
+.li-hover h3{
+    margin: 120px auto 20px;
+    color: #fff;
+}
+.li-hover p{
+    margin-bottom: 40px; 
+    color: rgb(218, 218, 218);
+}
+.li-link img{
+    flex: 1;
+    width: 50px;
+    height: 50px;
+    margin: 0 20px;
+}
