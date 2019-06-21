@@ -316,7 +316,8 @@ footer{
 }
 .foot-inner{
     display: flex;
-    width: 1400px;
+    min-width: 970px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 88px 0;
     justify-content: space-between;
