@@ -256,3 +256,82 @@ header{
     height: 50px;
     margin: 0 20px;
 }
+
+/* 第七 */
+.cont7-inner{
+    margin: 70px auto;
+    display: flex;
+    align-items: center;
+}
+.cont7-left{
+    min-width: 470px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0,0.2);
+    border-radius: 4px;
+    padding: 50px;
+}
+.cont7-left p{
+    margin-bottom: 35px;
+}
+.cont7-left input,.cont7-left textarea,.cont7-left button{
+    width: 100%;
+    margin: 15px auto;
+}
+.cont7-left input,.cont7-left button{
+    height: 50px;
+}
+.cont7-left input,.cont7-left textarea{
+    padding-left: 16px;
+}
+.cont7-left textarea{
+    padding-top: 16px; 
+}
+.cont7-left button{
+    background: #141414;
+    color: #fff;
+    border: none;
+}
+
+.cont7-inner .contacts{
+    margin-left: 200px;
+}
+.contacts h1{
+    margin-bottom: 40px;
+}
+.info{
+    margin-top: 60px;
+}
+.info-li{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+.info-li img{
+    margin-right: 10px;
+}
+
+/* footer */
+footer{
+    background: #141414;
+}
+.foot-inner{
+    display: flex;
+    width: 1400px;
+    margin: 0 auto;
+    padding: 88px 0;
+    justify-content: space-between;
+    color: rgba(255, 255, 255,0.3);
+}
+.foot-inner div{
+    flex: 1;
+}
+.foot-inner b:nth-of-type(1){
+    color: #fff;
+}
+.foot-inner p{
+    margin: 20px 0;
+}
+.foot-inner a{
+    opacity: 0.3;
+    margin-right: 10px;
+}
