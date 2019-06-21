@@ -1,0 +1,63 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0；
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+.menu{
+    height: 100%;
+}
+.menu-left{
+    position: relative;
+    float: left;
+    width: 100px;
+    /* 设置高度自适应浏览器高度 */
+    min-height: 100%;
+    background: #1d2531;
+    height: auto;
+}
+.left-iconteam{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    text-align: center;
+}
+.left-icon{
+    position: relative;
+    height: 60px;
+    margin-top: 20px; 
+}
+.left-icon img{
+    width: 60px;
+    height: 60px;
+}
+.left-icon .h-light img{
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+    width: 14px;
+    height: 60px;
+}
+.left-icon:hover .h-light img{
+    display: block;
+}
+.left-bottom{
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+}
+.left-bottom a{
+    margin: 0 10px;
+}
+
+.menu-right{
+    float: left;
+    width: 250px;
+    min-height: 100%;
+    background: #222c3c;
+}
