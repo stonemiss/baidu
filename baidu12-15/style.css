@@ -7,6 +7,9 @@ html,body{
     height: 100%;
     width: 100%;
 }
+body{
+    display: flex;
+}
 .menu{
     height: 100%;
 }
@@ -48,7 +51,7 @@ html,body{
 }
 .left-bottom{
     position: absolute;
-    bottom: 20px;
+    bottom: 24px;
     text-align: center;
 }
 .left-bottom a{
@@ -56,8 +59,104 @@ html,body{
 }
 
 .menu-right{
+    position: relative;
     float: left;
     width: 250px;
     min-height: 100%;
     background: #222c3c;
+}
+.menu-team{
+    margin: 14px 30px 30px;
+}
+.team-child{
+    color: #b7c0cd;
+    border-bottom: 0.5px solid #2a3547;
+    padding: 16px 0;
+}
+.team-child ul{
+    list-style: none;
+    display: inline-block;
+    padding-left: 0;
+    font-size: 14px;
+}
+.team-child ul li{
+    position: relative;
+    width: 190px;
+    line-height: 36px;
+}
+.team-child ul .li-head{
+    color: #5b6779;
+}
+.team-child ul li .seting{
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+.team-child ul li .num{
+    position: absolute;
+    right: 0;
+    top: 6px;
+    line-height: 20px;
+    background: linear-gradient(to bottom,#2ea1f8,#1991eb);
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 12px;
+}
+.team2 ul{
+    display: flex;
+    flex-flow: column;
+}
+.team2 .li-icon{
+    width: 18px;
+    height: 18px;
+}
+.team2 ul li{
+    display: flex;
+    align-items: center;
+}
+.team2 ul .li-icon{
+    margin-right: 10px;
+}
+
+.team3 ul li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-rb{
+    position: absolute;
+    bottom: 24px;
+    left: 30px;
+    width: 190px;
+    font-size: 14px;
+    color: #fff;
+}
+.rb-top{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.menu-rb .line-bg{
+    height: 4px;
+    width: 190px;
+    background: rgba(71, 83, 100, 0.3);
+    border-radius: 2px;
+}
+.line-bg .line-inner{
+    height: 4px;
+    width: 48px;
+    background: linear-gradient(to right,#7f5be6,#9d8fe3);
+    border-radius: 2px;
+}
+
+/* main */
+.main{
+
+}
+.main-header{
+    display: flex;
+    height: 80px;
+    width: 100%;
+    border-bottom: 1px solid #e6e9ec;
 }
