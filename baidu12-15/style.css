@@ -155,6 +155,7 @@ body{
 
 /* main */
 .main{
+    display: flex;
     width: 100%;
     height: 100%;
     padding-top: 80px;
@@ -261,7 +262,14 @@ body{
     
 }
 .user-team{
-    
+    overflow: auto;
+    flex: 1;
+}
+/* 在盒子上添加样式，把滚动条隐藏，这种CSS3方法目前不兼容火狐和IE浏览器 
+    第二种方法是在外面再套一层DIV宽度比内容小一点overflow：hidden 通过隐藏内容隐藏滚动条
+*/
+.user-team::-webkit-scrollbar{
+    display: none;
 }
 .item{
     display: flex;
@@ -289,7 +297,7 @@ body{
     margin-right: 20px;
 }
 .item1 .photo{
-    background: url(image/Userpic1.png);
+    background: url(image/Userpic4.png);
     background-size: cover;
 }
 .item2 .photo{
@@ -316,6 +324,17 @@ body{
     background: url(image/Userpic3.png);
     background-size: cover;
 }
+.photo-name .name-head{
+    display: flex;
+    align-items: center;
+}
+.name-head .head-radius{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #2399f1;
+    margin-right: 8px;
+}
 .photo-name p:nth-of-type(1){
     font-weight: bold;
     font-size: 16px;
@@ -330,8 +349,173 @@ body{
 .item-user .user-position{
     position: absolute;
     right: 0;
+    color: #7f8fa4;
 }
 .item .item-info{
     color: #585d68;
     line-height: 1.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* 文本限行，多出部分省略 */
+.item .item-info p{
+    /* word-break: break-all; */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+/* 这个border-radius给50%百分比一个数字显示没问题，但二位数医生形状会拉伸成椭圆，给具体像素就没问题 */
+.item .item-info .info-num{
+    color: #fff;
+    background: #2399f1;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-left: 10px;
+}
+
+/* main-right */
+.main-right{
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+}
+.message-top{
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    border-bottom: 1px solid #e6e9ec;
+    padding: 0 20px 0 30px;
+}
+.mes-top-l{
+    display: flex;
+    align-items: center;
+}
+.mes-top-l p{
+    font-size: 18px;
+    font-weight: bold;
+}
+.mes-top-l .mes-top-radius{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #1bb934;
+    margin-left: 20px;
+}
+.mes-top-r,.mes-btn{
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+}
+.mes-btn{
+    background: linear-gradient(to bottom,#fff,#f1f3f7);
+    border-radius: 4px;
+    border: 1px solid #e6e9ec;
+}
+.mes-top-r .btn{
+    width: 36px;
+    height: 32px;
+}
+.mes-btn .btn-user{
+    background: url(image/Usericon.png) no-repeat center;
+}
+.mes-btn .btn-upload{
+    background: url(image/Uploadicon.png) no-repeat center;
+    border-left: 1px solid #e6e9ec;
+    border-right: 1px solid #e6e9ec;
+}
+.mes-btn .btn-del{
+    background: url(image/Trashicon.png) no-repeat center;
+}
+.mes-top-r .mes-page{
+    margin: 0 20px;
+    padding-left: 20px; 
+    font-weight: bold;
+    border-left: 1px solid #e6e9ec;
+    color: #7f8fa4;
+}
+.mes-turn{
+    display: flex;
+    background: linear-gradient(to bottom,#fff,#f1f3f7);
+    border-radius: 4px;
+    border: 1px solid #e6e9ec;
+}
+.mes-turn .btn-left{
+    background: url(image/Arrowleft.png) no-repeat center;
+    border-right: 1px solid #e6e9ec;
+}
+.mes-turn .btn-right{
+    background: url(image/Arrowright.png) no-repeat center;
+}
+
+/* message main */
+.message-main{
+    overflow: auto;
+    flex: 1;
+}
+/* 隐藏滑动条 */
+.message-main::-webkit-scrollbar{
+    display: none;
+}
+.mes-list{
+    position: relative;
+    margin: 25px 30px;
+}
+
+.mes-list .photo1{
+    background: url(image/Userpic4.png) no-repeat;
+    background-size: cover;
+}
+.mes-list .photo2{
+    background: url(image/Userpic1.png) no-repeat;
+    background-size: cover;
+}
+.mes-container{
+    position: relative;
+    padding-left: 66px;
+}
+/* 方法一左浮动清除距离 */
+/* .mes-list-photo{
+    float: left;
+    position: relative;
+    width: 46px;
+    height: 46px;
+    margin-left: -100%;
+    border-radius: 50%;
+    margin-right: 20px;
+} */
+/* 方法二直接绝对定位 */
+.mes-list-photo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.con-time{
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.con-time .con-name{
+    font-size: 16px;
+    margin-right: 10px;
+}
+.con-time .talktime{
+    color: #7f8fa4;
+}
+
+.time-line{
+    text-align: center;
+    position: relative;
+}
+.time-line hr{
+    position: absolute;
+    width: 100%;
+    top:10px;
+    color: #e6e9ec;
 }
