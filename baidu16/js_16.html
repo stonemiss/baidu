@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>DEMO</h1>
+    <p id="content-wrapper">你是谁？</p>
+    <input type="text" id="name-input" placeholder="请输入你的姓名">
+    <button id="send-btn">发送</button>
+
+    <br>
+    <br>
+    <hr>
+    <br>
+    <div>
+        <h1>计算</h1>
+        <input id="first-number" type="number" value="0" placeholder="第一个数字">
+        <input id="second-number" type="number" value="0" placeholder="第二个数字">
+        <button id="add-btn">加</button>
+        <button id="minus-btn">减</button>
+        <button id="times-btn">乘</button>
+        <button id="divide-btn">除</button>
+        <p id="result">运算结果</p>
+    </div>
+    <script>
+        //console.log(document.getElementById("content-wrapper").innerHTML);//浏览器调试
+        document.getElementById('send-btn').onclick = function () {
+            document.getElementById('content-wrapper').innerHTML = '你好' + document.getElementById("name-input").value;
+        }
+
+        //计算
+        // 我需要得到js实现两个数字相加的结果，可是js总是默认按照字符串处理，将两个数字连接起来。所以需要添加parseInt()降字符串解析为数字再相加
+        document.getElementById('add-btn').onclick = function(){
+            document.getElementById('result').innerHTML = parseInt(document.getElementById('first-number').value) + parseInt(document.getElementById('second-number').value); 
+        }
+        document.getElementById('minus-btn').onclick = function(){
+            document.getElementById('result').innerHTML = document.getElementById('first-number').value - document.getElementById('second-number').value;
+        }
+        document.getElementById('times-btn').onclick = function(){
+            document.getElementById('result').innerHTML = document.getElementById('first-number').value * document.getElementById('second-number').value;
+        }
+        document.getElementById('divide-btn').onclick = function(){
+            document.getElementById('result').innerHTML = document.getElementById('first-number').value / document.getElementById('second-number').value;
+        }
+    </script>
+</body>
+
+</html>
