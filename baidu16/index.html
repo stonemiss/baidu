@@ -36,8 +36,10 @@
 
         //计算
         // 我需要得到js实现两个数字相加的结果，可是js总是默认按照字符串处理，将两个数字连接起来。所以需要添加parseInt()降字符串解析为数字再相加
+        //parseInt会转化为整数 可以使用Number(),但是JS计算浮点不准确 需要数字*10/10；
+        //parseFloat返回浮点数
         document.getElementById('add-btn').onclick = function(){
-            document.getElementById('result').innerHTML = parseInt(document.getElementById('first-number').value) + parseInt(document.getElementById('second-number').value); 
+            document.getElementById('result').innerHTML = Number(document.getElementById('first-number').value) + Number(document.getElementById('second-number').value); 
         }
         document.getElementById('minus-btn').onclick = function(){
             document.getElementById('result').innerHTML = document.getElementById('first-number').value - document.getElementById('second-number').value;
