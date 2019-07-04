@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>二进制</title>
+</head>
+
+<body>
+    <input type="number" name="" id="dec-number" placeholder="输入一个十进制非负整数">
+    <button id="trans-btn">转换为二进制</button>
+    <p id="result">运算结果</p>
+
+    <script>
+        let num = document.querySelector('#dec-number');
+        let result = document.querySelector('#result');
+        let transBtn = document.querySelector('#trans-btn');
+
+        transBtn.addEventListener('click', trans);
+
+        function trans() {
+            let x = num.value;
+            if (x <= 0) {
+                result.textContent = '输入一个十进制非负整数';
+                result.style.color = 'red';
+            }
+
+            let arr = [];
+            let y = x % 2;
+            let x = Math.floor(x/2);
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+//  changeNum(b) { //b传入的值
+//       let arr = [] 一个空数组
+//         while (b > 0) //b的值的大于0，循环
+//         {
+//           let a = b % 2 //b值除2的余数
+//           let b = Math.floor(b / 2) //b的值除2向下取整 ，获得新值
+//           arr.unshift(a)//把除2的余数在数组第一位添加
+
+//         }
+//         let c = arr.join('') //数组转为字符串
+
+//     ｝
+
+
+    </script>
+</body>
+
+</html>
