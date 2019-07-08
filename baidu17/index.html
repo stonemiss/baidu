@@ -71,12 +71,34 @@
 
         //renum
         for (i = 1; i < 101; i++) {
-            
-            if(i.indexOf('3')){
-                i = 'PA';
+            let renum = document.querySelector('.renum');
+            var numz = ''
+
+            if (i % 3 == 0) {
+                numz += 'pa' + ' ';
+            } else {
+                let z = i + ' ';
+                if (z.indexOf('3') == 1) {
+                    numz += 'pa' + ' ';
+                }else{
+                    numz += i+ ' ';
+                }
+
             }
-            document.querySelector('.renum').textContent += i + ' ';
+            renum.textContent += numz;
         }
+
+        let t = '';
+
+        for(n=1;n<=9 ;n++){
+            for(m=1;m<=9;m++){
+                t= n + '*' + m + '=' + n*m; 
+                console.log(t);
+            }
+            
+        }
+
+
 
 
     </script>
