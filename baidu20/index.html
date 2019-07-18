@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="UTF-8">    
+    <meta charset="UTF-8">
     <title>IFE ECMAScript</title>
     <style>
         select {
@@ -13,15 +14,18 @@
             padding: 0;
             list-style: none;
         }
+
         .palette li {
             width: 40px;
             height: 40px;
             border: 1px solid #000;
-            cursor: pointer;/* 改变鼠标选择时显示形状*/
+            cursor: pointer;
+            /* 改变鼠标选择时显示形状*/
         }
     </style>
 </head>
-<body>            
+
+<body>
     <label>
         <input id="school" name="status" type="radio">
         School
@@ -31,15 +35,15 @@
         Company
     </label>
 
-    <select id="school-select">        
+    <select id="school-select">
         <option>北京邮电大学</option>
         <option>黑龙江大学</option>
         <option>华中科技大学</option>
     </select>
 
-    <select id="company-select">        
+    <select id="company-select">
         <option>百度</option>
-        <option>爱奇艺</option>        
+        <option>爱奇艺</option>
     </select>
 
     <br>
@@ -56,7 +60,7 @@
         <li style="background-color:chartreuse"></li>
         <li style="background-color:darkolivegreen"></li>
         <li style="background-color:cyan"></li>
-        <li style="background-color:#194738"></li>        
+        <li style="background-color:#194738"></li>
     </ul>
 
     <p class="color-picker"></p>
@@ -91,28 +95,28 @@
 
 
         //--------------------way2------------------------.
-        function choose(e){
-            if(e.target.id === 'school'){
+        function choose(e) {
+            if (e.target.id === 'school') {
                 console.log(1);
                 schoolS.style.cssText = 'display: block;';
                 companyS.style.cssText = 'display: hidden';
             }
-            else if(e.target.id === 'company'){
+            else if (e.target.id === 'company') {
                 console.log(2);
                 schoolS.style.cssText = 'display: hidden;';
-                companyS.style.cssText = 'display: block;';       
+                companyS.style.cssText = 'display: block;';
             }
         }
 
-        schoolR.addEventListener('click',choose);
-        companyR.addEventListener('click',choose);
+        schoolR.addEventListener('click', choose);
+        companyR.addEventListener('click', choose);
 
 
 
         //index2------------------
         var list = document.querySelectorAll("li");
         for (var i = 0, len = list.length; i < len; i++) {
-            list[i].onclick = function(e) {
+            list[i].onclick = function (e) {
                 var t = e.target;
                 var c = t.style.backgroundColor;
                 var p = document.getElementsByClassName("color-picker")[0]
@@ -123,7 +127,7 @@
         }
 
         //index3----------------------
-        function stime(){
+        function stime() {
             console.log("延时测试");
             let ys = document.querySelector('#sto');
             ys.value = "";
@@ -131,26 +135,62 @@
 
 
         //index4----------------
-        let fadeObj = document.querySelector('#fade-obj'); 
+        let fadeObj = document.querySelector('#fade-obj');
         var fadeBtn = document.querySelector('#fade-btn');
+        var y = 0;
+        var x;
+        var x2;
+        var z;
+        var z2;
 
-        fadeBtn.onclick = function(){
-            if(fadeBtn.innerHTML == '淡出'){
+        fadeBtn.onclick = function () {
+            if (fadeBtn.innerHTML == '淡出') {
                 fadeBtn.innerHTML = '淡入';
-                fadeObj.style.opacity = op;
-                setInterval(op,100);
-                
+                clearInterval(x2);
+                y=0;
+                x = setInterval(op, 100);
 
 
             }
-            else if(fadeBtn.innerHTML == '淡入'){
+            else if (fadeBtn.innerHTML == '淡入') {
                 fadeBtn.innerHTML = '淡出';
+                clearInterval(x);
+                y=0;
+                x2 = setInterval(opadd,100);
             }
-           function
+            function op() {
+                console.log(y);//测试
+
+                y++;
+                z = 1 - y / 10;
+                fadeObj.style.opacity = z;
+                if(y<10){
+                    fadeBtn.disabled = true;
+
+                }else{
+                    fadeBtn.disabled = false;
+                    clearInterval(x);
+                }
+            }
+            function opadd(){
+                console.log(y);//测试
+                y++;
+                z2 = y/10;
+                fadeObj.style.opacity = z2;
+                if(y<10){
+                    fadeBtn.disabled = true;
+
+                }else{
+                    fadeBtn.disabled = false;
+                    clearInterval(x2);
+                }
+
+            }
         }
-        
+
 
 
     </script>
 </body>
+
 </html>
