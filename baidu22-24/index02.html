@@ -122,7 +122,33 @@
                 result.innerHTML = strb.value.toUpperCase();
             }
         })
-    
+        //把所选输入框中的内容全部转为小写
+        buttons[9].addEventListener('click',function(){
+            if(checked(radioa)){
+                result.innerHTML = stra.value.toLowerCase();
+            }
+            if(checked(radiob)){
+                result.innerHTML = strb.value.toLowerCase();
+            }
+        })
+        // 把所选输入框中内容的半角空格全部去除
+        buttons[10].addEventListener('click',function(){
+            if(checked(radioa)){
+                result.innerHTML = stra.value.replace(/\s+/g,'');
+            }
+            if(checked(radiob)){
+                result.innerHTML = strb.value.replace(/\s+/g,'');
+            }
+        })
+        // 把所选输入框中内容的a全部替换成另外一个输入框中的内容
+        buttons[11].addEventListener('click',function(){
+            if(checked(radioa)){
+                stra.value = stra.value.replace(stra.value,strb.value);
+            }
+            if(checked(radiob)){
+                strb.value = strb.value.replace(strb.value,stra.value);
+            }
+        })
 
     </script>
 
