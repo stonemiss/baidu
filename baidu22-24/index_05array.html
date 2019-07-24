@@ -19,9 +19,38 @@
     <script>
 
         var queue = ["apple", "pear"];
+        var cont = document.querySelector('#queue-cont');
+
         let input = document.querySelector('#queue-input'),
-        cont = document.querySelector('#queue-cont'),
-        inbtn = document.querySelector('#in-bit'),
+        inbtn = document.querySelector('#in-btn'),
+        outbt = document.querySelector('#out-btn'),
+        font = document.querySelector('#font-btn'),
+        empty = document.querySelector('#empty-btn');
+
+        inbtn.addEventListener('click',function(){
+            console.log(1)
+            if(input.value != ''){
+                queue.unshift(input.value);
+            }
+            cont.innerHTML = '队列内容：' + queue.join('-&gt');
+        })
+
+        outbt.addEventListener('click',function(){
+            queue.pop();
+            cont.innerHTML = '队列内容：' + queue.join('-&gt');
+        })
+
+        font.addEventListener('click',function(){
+           cont.innerHTML = '队头元素：' + queue.pop(); 
+        })
+
+        empty.addEventListener('click',function(){
+            if(queue.length === 0){
+                cont.innerHTML = '队列为空';
+            }else{
+                cont.innerHTML = '队列不为空';
+            }
+        })
 
 
         
