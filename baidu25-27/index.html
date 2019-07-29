@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Function scope example</title>
+</head>
+
+<body>
+    <p id="txt"></p>
+    <select id="year-select">
+        <option value="2000">2000</option>
+        <option value="2001">2001</option>
+        <option value="2002">2002</option>
+        <option value="2003">2003</option>
+        <option value="2004">2004</option>
+        <option value="2005">2005</option>
+        <option value="2006">2006</option>
+        <option value="2007">2007</option>
+        <option value="2008">2008</option>
+        <option value="2009">2009</option>
+        <option value="2010">2010</option>
+        <option value="2011">2011</option>
+        <option value="2012">2012</option>
+        <option value="2013">2013</option>
+        <option value="2014">2014</option>
+        <option value="2015">2015</option>
+        <option value="2016">2016</option>
+        <option value="2017">2017</option>
+        <option value="2018">2018</option>
+        <option value="2019">2019</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+    </select>
+
+    <select id="month-select">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>
+
+    <select id="day-select">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        ……
+        <option value="31">31</option>
+    </select>
+
+    <select id="hour-select">
+        <option value="0">00</option>
+        <option value="1">01</option>
+        ……
+        <option value="23">23</option>
+    </select>
+
+    <select id="minite-select">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        ……
+        <option>59</option>
+    </select>
+
+    <select id="second-select">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        ……
+        <option>59</option>
+    </select>
+    <button id="btn" onclick="">计算</button>
+
+    <p id="result-wrapper">现在距离 2001年1月1日星期X HH:MM:SS 还有 X 天 X 小时 X 分 X 秒</p>
+
+
+
+    <script>
+
+        function getTime() {
+            var time = new Date();
+            var y = time.getFullYear();
+            var mon = time.getMonth();
+            var d = time.getDate();
+            var w = checkDay();
+            var h = time.getHours();
+            var m = time.getMinutes();
+            var s = time.getSeconds();
+            mon = checkTime(mon);
+            d = checkTime(d);
+            h = checkTime(h);
+            m = checkTime(m);
+            s = checkTime(s);
+            var ti;
+            if (h >= 12) {
+                ti = 'pm';
+            } else {
+                ti = 'am';
+            }
+            document.getElementById('txt').innerHTML = date(y, mon, d, w, h, m, s) + ti;;
+
+        }
+        setInterval(getTime, 500);
+        //打印函数封装
+        function date(y, mon, d, w, h, m, s) {
+            var x = '当前时间：' + y + '年' + mon + '月' + d + '日 ' + w + ' ' + h + ':' + m + ':' + s;
+            return x;
+        }
+        //检查数字封装
+        function checkTime(i) {
+            if (i < 10) {
+                i = '0' + i;
+            }
+            return i;
+        }
+        //星期封装
+        function checkDay() {
+            var t = new Date();
+            var d = t.getDay();
+            var w = Array(7);
+            w[0] = '星期日';
+            w[1] = '星期一';
+            w[2] = '星期二';
+            w[3] = '星期三';
+            w[4] = '星期四';
+            w[5] = '星期五';
+            w[6] = '星期六';
+            return w[d];
+        }
+
+        getTime();
+
+
+
+
+
+        //index2计算时间------------------------------------------------------------------------
+
+
+
+        btn.onclick = function () {
+            var btn = document.querySelector('#btn');
+            var y = document.querySelector('#year-select').value,
+                mon = document.querySelector('#month-select').value,
+                d = document.querySelector('#day-select').value,
+                h = document.querySelector('#hour-select').value,
+                m = document.querySelector('#minite-select').value,
+                s = document.querySelector('#second-select').value;
+
+            //引用了上面的星期封装函数
+            var week = checkDay();
+
+            //获取设定的时间和现在的时间 参考值gettime
+            var myDate = new Date(y, mon-1, d, h, m, s).getTime();
+            var nowDate = new Date().getTime();
+
+            //将获取时间差的毫秒单位转化为秒 然后取整
+            var allTime = Math.round((myDate - nowDate) / 1000);
+
+            //转化单位
+            var newY = Math.floor(allTime / 365 / 24 / 3600);
+            var newD = Math.floor(allTime / 24 / 3600);
+            var newH = Math.floor(allTime / 3600 % 24);
+            var newM = Math.floor(allTime / 60 % 60);
+            var newS = Math.floor(allTime % 60);
+
+            document.querySelector('#result-wrapper').innerHTML = '现在距离 ' + y + '年' + mon + '月' + d + '日' + week + h + ':' + m + ':' + s + ' 还有' + newD + '天' + newH + '小时' + newM + '分' + newS + '秒';
+        }
+
+    </script>
+</body>
+
+</html>
