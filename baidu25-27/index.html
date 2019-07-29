@@ -162,11 +162,11 @@
             var week = checkDay();
 
             //获取设定的时间和现在的时间 参考值gettime
-            var myDate = new Date(y, mon-1, d, h, m, s).getTime();
+            var myDate = new Date(y, mon - 1, d, h, m, s).getTime();
             var nowDate = new Date().getTime();
 
             //将获取时间差的毫秒单位转化为秒 然后取整
-            var allTime = Math.round((myDate - nowDate) / 1000);
+            var allTime = Math.abs((myDate - nowDate) / 1000);
 
             //转化单位
             var newY = Math.floor(allTime / 365 / 24 / 3600);
@@ -174,8 +174,13 @@
             var newH = Math.floor(allTime / 3600 % 24);
             var newM = Math.floor(allTime / 60 % 60);
             var newS = Math.floor(allTime % 60);
+            if (myDate >= nowDate) {
+                document.querySelector('#result-wrapper').innerHTML = '现在距离 ' + y + '年' + mon + '月' + d + '日' + week + h + ':' + m + ':' + s + ' 还有' + newD + '天' + newH + '小时' + newM + '分' + newS + '秒';
+            } else {
+                document.querySelector('#result-wrapper').innerHTML = '现在距离 ' + y + '年' + mon + '月' + d + '日' + week + h + ':' + m + ':' + s + ' 已经过去' + newD + '天' + newH + '小时' + newM + '分' + newS + '秒';
 
-            document.querySelector('#result-wrapper').innerHTML = '现在距离 ' + y + '年' + mon + '月' + d + '日' + week + h + ':' + m + ':' + s + ' 还有' + newD + '天' + newH + '小时' + newM + '分' + newS + '秒';
+            }
+
         }
 
     </script>
