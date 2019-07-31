@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <input id="email-input" type="text">
+        <ul id="email-sug-wrapper" class="email-sug"></ul>
+    </div>
+
+
+</body>
+<script>
+    // 邮箱后缀List参考
+    var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+    var emailInput = document.getElementById('email-input');
+    var emailSug = document.querySelector('.email-sug');
+
+    function creat(i) {
+        var creatLi = document.createElement('li');
+        // creatLi.value = i;
+        creatLi.innerHTML = i;
+        return creatLi;
+    }
+
+    emailInput.oninput = function () {
+        if (emailInput.value != '') {
+            for (var i = 0; i < postfixList.length; i++) {
+                var pList = emailInput.value + postfixList[i];
+                emailSug.appendChild(creat(pList));
+            }
+        }
+
+    }
+
+    emailInput.onblur = function () {
+
+    }
+
+</script>
+
+</html>
