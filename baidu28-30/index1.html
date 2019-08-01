@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        ul,
+        li {
+            list-style: none;
+            padding-left: 4px;
+        }
+    </style>
 </head>
 
 <body>
@@ -29,12 +36,34 @@
         return creatLi;
     }
 
+    // 检查输入的内容是否有'@',并重新赋值
+    function checkA() {
+        //清除输入首位的空格
+        var inputValue = emailInput.value.replace(/(^\s*)|(\s*$)/g, "");
+        // 如果有'@'取符号之前的字符串，没有的话直接取值。
+        var xnum = inputValue.indexOf('@');
+        if(xnum != '-1'){
+            inputValue = inputValue.slice(0, xnum);
+            return inputValue;
+        }else{
+            return inputValue;
+        }  
+    }
+    
+
+
+    //当输入框输入时
     emailInput.oninput = function () {
+        emailSug.innerHTML = '';
         if (emailInput.value != '') {
+            var s = checkA();
             for (var i = 0; i < postfixList.length; i++) {
-                var pList = emailInput.value + postfixList[i];
+                var pList = s + '@' + postfixList[i];
                 emailSug.appendChild(creat(pList));
             }
+        } else if (emailInput.value == '') {
+            console.log('kong');
+            emailSug.innerHTML = '';
         }
 
     }
